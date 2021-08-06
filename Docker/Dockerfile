@@ -1,5 +1,5 @@
 FROM continuumio/miniconda3:latest
-WORKDIR /app
-COPY 1.sh usr/src/app/
+WORKDIR usr/src/app/
+COPY 1.sh .
 RUN pip install mlflow boto3 pymysql
-CMD usr/src/app/1.sh
+CMD ./1.sh
