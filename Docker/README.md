@@ -19,6 +19,7 @@
 
 ## **Лог выполнения сборки**: 
 ```(base) C:\PythonProjects\devops-mlops\Docker>docker build . -t netology-ml:netology-ml
+(base) C:\PythonProjects\devops-mlops\Docker>docker build . -t netology-ml:netology-ml
 [+] Building 32.1s (9/9) FINISHED
  => [internal] load build definition from Dockerfile                                                                                                                                                                                  0.0s
  => => transferring dockerfile: 156B                                                                                                                                                                                                  0.0s
@@ -34,5 +35,4 @@
  => exporting to image                                                                                                                                                                                                                2.3s
  => => exporting layers                                                                                                                                                                                                               2.2s
  => => writing image sha256:4baf27727e07aed9f1408ed3d45250baecac66d7c6626424018a1f0dd569c43a                                                                                                                                          0.0s
- => => naming to docker.io/library/netology-ml:netology-ml 
- ```  
+ => => naming to docker.io/library/netology-ml:netology-ml```  
