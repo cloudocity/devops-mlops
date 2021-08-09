@@ -1,2 +1,2 @@
 #!/bin/bash
-echo Hello Netology!
+echo "Chip & Dale"
