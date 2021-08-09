@@ -23,19 +23,20 @@
 ## **Лог выполнения сборки**: 
 ```
 (base) C:\PythonProjects\devops-mlops\Docker>docker build . -t netology-ml:netology-ml
-[+] Building 1.0s (9/9) FINISHED
+[+] Building 1.1s (10/10) FINISHED
  => [internal] load build definition from Dockerfile                                                                                                                                                                                  0.0s
- => => transferring dockerfile: 31B                                                                                                                                                                                                   0.0s
+ => => transferring dockerfile: 183B                                                                                                                                                                                                  0.0s
  => [internal] load .dockerignore                                                                                                                                                                                                     0.0s
  => => transferring context: 2B                                                                                                                                                                                                       0.0s
- => [internal] load metadata for docker.io/continuumio/miniconda3:latest                                                                                                                                                              0.7s
- => [1/4] FROM docker.io/continuumio/miniconda3:latest@sha256:592a60b95b547f31c11dc6593832e962952e3178f1fa11db37f43a2afe8df8d7                                                                                                        0.0s
- => [internal] load build context                                                                                                                                                                                                     0.1s
- => => transferring context: 61B                                                                                                                                                                                                      0.0s
- => CACHED [2/4] WORKDIR app/                                                                                                                                                                                                         0.0s
- => CACHED [3/4] RUN pip install mlflow boto3 pymysql                                                                                                                                                                                 0.0s
- => [4/4] COPY 1.sh .                                                                                                                                                                                                                 0.0s
+ => [internal] load metadata for docker.io/continuumio/miniconda3:latest                                                                                                                                                              0.8s
+ => [1/5] FROM docker.io/continuumio/miniconda3:latest@sha256:592a60b95b547f31c11dc6593832e962952e3178f1fa11db37f43a2afe8df8d7                                                                                                        0.0s
+ => [internal] load build context                                                                                                                                                                                                     0.0s
+ => => transferring context: 25B                                                                                                                                                                                                      0.0s
+ => CACHED [2/5] WORKDIR app/                                                                                                                                                                                                         0.0s
+ => CACHED [3/5] RUN pip install mlflow boto3 pymysql                                                                                                                                                                                 0.0s
+ => CACHED [4/5] COPY 1.sh .                                                                                                                                                                                                          0.0s
+ => [5/5] RUN chmod 777 ./1.sh                                                                                                                                                                                                        0.2s
  => exporting to image                                                                                                                                                                                                                0.0s
  => => exporting layers                                                                                                                                                                                                               0.0s
- => => writing image sha256:741127d3ddfe216a23b65d5ed4f4ab661773afe505b8ea76c74d6ce38337b628                                                                                                                                          0.0s
- => => naming to docker.io/library/netology-ml:netology-ml             ```  
+ => => writing image sha256:32e0013ba83340956ce349db0cda2bc397a5f41fd25f51707abb2e80ea5a10e3                                                                                                                                          0.0s
+ => => naming to docker.io/library/netology-ml:netology-ml            ```  
