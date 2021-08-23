@@ -1,38 +1,56 @@
 ## Домашняя работа к занятию “Ansible”
 
-## **Цель задания**
+## **LOG**:
 
-Написать рабочий playbook Ansible, чтобы научится работать с ansible, его синтаксисом, и понимать, как через него настраивается раскатка ПО.
+``` [root@main home]# ansible-playbook ansible/group_vars/install.yaml -i ansible/inventory
+[WARNING]:  * Failed to parse /home/ansible/inventory with yaml plugin: We were unable to read either as JSON nor YAML, these are the errors we got
+from each: JSON: No JSON object could be decoded  Syntax Error while loading YAML.   did not find expected <document start>  The error appears to be
+in '/home/ansible/inventory': line 2, column 1, but may be elsewhere in the file depending on the exact syntax problem.  The offending line appears
+to be:  [all] node1 ansible_host=192.168.1.61 ansible_user=ansible ansible_password=ansible ^ here
+[WARNING]:  * Failed to parse /home/ansible/inventory with ini plugin: /home/ansible/inventory:6: Expected key=value host variable assignment, got:
+ansible_host:
+[WARNING]: Unable to parse /home/ansible/inventory as an inventory source
+[WARNING]: No inventory was parsed, only implicit localhost is available
 
-## **Задание**:
+PLAY [netology-ml] **********************************************************************************************************************************
 
-Необходимо написать playbook Ansible, который будет в себе содержать:
-1. Имя плейбука homework.yaml
-2. inventory, из минимум 1 хоста, если есть возможность, то 2 лучше
-3. Авторизация должна быть настроена через техническую уз ansible
-4. Наименование netology-ml
-5. Проверка через метод ping доступность хостов
-6. Через var установка пакетов net_tools, git, tree, htop, mc, vim
-7. Использование update
-8. Копирование текстового файла test.txt
-9. Создание в цикле групп пользователей devops_1, test_1 с созданием пользователей и директорий home devops_1, test_1
+TASK [Gathering Facts] ******************************************************************************************************************************
+ok: [node2]
+ok: [node1]
 
-Домашнее задание выполните в файле readme.md в github репозитории.
+TASK [Task ping] ************************************************************************************************************************************
+ok: [node2]
+ok: [node1]
 
-## **Результат**:  
+TASK [Task yum update] ******************************************************************************************************************************
+ok: [node1]
+ok: [node2]
 
-В личном кабинете отправьте на проверку ссылку на .md-файл в вашем репозитории. 
-Приложите:
+TASK [Installing package] ***************************************************************************************************************************
+ok: [node2]
+ok: [node1]
 
-●	полученный inventory и homework.yaml
+TASK [Task yum update] ******************************************************************************************************************************
+ok: [node1]
+ok: [node2]
 
-●	лог выполнения плейбук
+TASK [Copy File] ************************************************************************************************************************************
+ok: [node2]
+changed: [node1]
 
-Также вы можете выполнить задание в Google Docs и отправить в личном кабинете на проверку ссылку на ваш документ. Название файла Google Docs должно содержать номер лекции и фамилию студента. Пример названия: "1.2. Docker — Товаркин Мананаж" Перед тем как выслать ссылку, убедитесь, что ее содержимое не является приватным (открыто на комментирование всем, у кого есть ссылка). Если необходимо прикрепить дополнительные ссылки, просто добавьте их в свой Google Docs.
+TASK [Create Groups] ********************************************************************************************************************************
+ok: [node1] => (item=devops_1)
+ok: [node2] => (item=devops_1)
+ok: [node2] => (item=test_1)
+ok: [node1] => (item=test_1)
 
-## **Инструменты**:
+TASK [Create User] **********************************************************************************************************************************
+ok: [node1] => (item={u'client_name': u'devops_1', u'home_dir': u'devops_1'})
+ok: [node2] => (item={u'client_name': u'devops_1', u'home_dir': u'devops_1'})
+ok: [node1] => (item={u'client_name': u'test_1', u'home_dir': u'test_1'})
+ok: [node2] => (item={u'client_name': u'test_1', u'home_dir': u'test_1'})
 
-●	Репозиторий с домашним заданием https://github.com/Netology-DS/devops-mlops/tree/master/Ansible 
-
-
-Любые вопросы по решению задач задавайте в чате Slack.
+PLAY RECAP ******************************************************************************************************************************************
+node1                      : ok=8    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+node2                      : ok=8    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+```
