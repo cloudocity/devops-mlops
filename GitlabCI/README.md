@@ -1,35 +1,40 @@
 ## Домашняя работа к занятию “ CI/CD”
-## **Цель задания**
 
-Научиться пользоваться инструментом CI/CD GitlabCI, который позволит погрузиться в процесс автоматизации посредством написания рабочего playbook.
 
-## **Задание**:
+```
+Running with gitlab-runner 14.2.0 (58ba2b95)
+ on netologyRun uX3Cyknb
+Preparing the "shell" executor
+Using Shell executor...
+Preparing environment
+Running on main.localdomain...
+Getting source from Git repository
+Fetching changes with git depth set to 50...
+Reinitialized existing Git repository in /home/gitlab-runner/builds/uX3Cyknb/0/root/netology/.git/
+Checking out 9020b1fd as main...
+Skipping Git submodules setup
+Executing "step_script" stage of the job script
+$ mkdir /home/gitlab-runner/builds/build
+$ touch /home/gitlab-runner/builds/build/info.txt
+$ echo "Compile complete."
+Compile complete.
+Job succeeded
+```
 
-1. Сделать playbook .gitlab-ci.yaml по следующим критериям:
-2. Используем в тасках tag - netology
-3. Шаги - build, test
-4. В билде должен выполняться скрипт из шагов: 
-- начало Building
-- создание папки build
-- создание файла в этой папке info.txt
-В тесте:
-- выводим Testing
-- проверяем наличие файла info.txt в папке build 
-
-Домашнее задание выполните в файле readme.md в github репозитории.
-
-## **Результат**: 
-В личном кабинете отправьте на проверку ссылку на .md-файл в вашем репозитории. Приложите:
-- файл readme.md с выполненным заданием в github репозитории 
-- приложить полученный .gitlab-ci.yaml 
-- скрин успешности выполнение таска в gitlab
-
-Также вы можете выполнить задание в Google Docs и отправить в личном кабинете на проверку ссылку на ваш документ. Название файла Google Docs должно содержать номер лекции и фамилию студента. Пример названия: "1.2. Docker — Товаркин Мананаж" Перед тем как выслать ссылку, убедитесь, что ее содержимое не является приватным (открыто на комментирование всем, у кого есть ссылка). Если необходимо прикрепить дополнительные ссылки, просто добавьте их в свой Google Docs.
-
-## **Инструменты**:
-
-Gitlab - https://docs.gitlab.com/omnibus/manual_install.html 
-
-Gitlab runner - https://docs.gitlab.com/runner/install/linux-repository.html  
-
-Любые вопросы по решению задач задавайте в чате Slack.
+```Running with gitlab-runner 14.2.0 (58ba2b95)
+  on netologyRun uX3Cyknb
+Preparing the "shell" executor
+Using Shell executor...
+Preparing environment
+Running on main.localdomain...
+Getting source from Git repository
+Fetching changes with git depth set to 50...
+Reinitialized existing Git repository in /home/gitlab-runner/builds/uX3Cyknb/0/root/netology/.git/
+Checking out 9020b1fd as main...
+Skipping Git submodules setup
+Executing "step_script" stage of the job script
+$ echo "Testing"
+Testing
+$ test -f /home/gitlab-runner/builds/build/info.txt && echo "$FILE Существует"
+ Существует
+Job succeeded
